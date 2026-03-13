@@ -37,76 +37,91 @@ export default function Home() {
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
-        padding: '120px 0 60px',
+        justifyContent: 'center',
+        padding: '0',
         overflow: 'hidden',
-        zIndex: 5
+        zIndex: 5,
+        background: '#000'
       }}>
-        <div className="container" style={{ position: 'relative', zIndex: 20 }}>
-          <div style={{ maxWidth: '1000px' }}>
-            <div className="reveal-anim">
-              <div className="badge-wellness" style={{ marginBottom: '2rem', border: '1px solid var(--color-accent)', padding: '0.6rem 1.5rem', background: 'rgba(16, 185, 129, 0.05)', position: 'relative', zIndex: 21 }}>
-                SANTUARIO TÉCNICO v7.5 • AURORA PROTOCOL
-              </div>
-              
-              <h1 style={{ 
-                fontSize: 'clamp(4rem, 14vw, 8.5rem)', 
-                lineHeight: 0.85,
-                marginBottom: '3rem',
-                fontWeight: 900,
-                textTransform: 'uppercase',
-                letterSpacing: '-0.06em',
-                position: 'relative',
-                zIndex: 22
-              }}>
-                Diseñamos <br /> 
-                <span style={{ 
-                  color: 'transparent', 
-                  WebkitTextStroke: '2px #fff',
-                  opacity: 0.8
-                }}>Resultados.</span>
-              </h1>
+        {/* BACKGROUND MEDIA - THE SOUL OF THE SITE */}
+        <div style={{
+            position: 'absolute',
+            inset: 0,
+            zIndex: 1
+        }}>
+           <img 
+             src="/src/assets/branding/hero_meditation.png" 
+             alt="Elite Sanctuary" 
+             style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.7 }}
+           />
+           <div style={{ 
+             position: 'absolute', 
+             inset: 0, 
+             background: 'radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.8) 100%)' 
+           }} />
+        </div>
 
-              <p style={{ 
-                maxWidth: '800px', 
-                marginBottom: '4rem',
-                color: 'var(--color-text-muted)',
-                fontSize: '1.8rem',
-                lineHeight: 1.4,
-                fontWeight: 400,
-                position: 'relative',
-                zIndex: 23
-              }}>
-                No somos un centro de yoga. Somos un laboratorio de maestría biomecánica donde la tecnología se funde con el silencio de vanguardia.
-              </p>
+        {/* NEON RINGS DECORATION */}
+        <div className="neon-ring" style={{ width: '600px', height: '600px', top: '-10%', right: '-10%' }} />
+        <div className="neon-ring" style={{ width: '400px', height: '400px', bottom: '10%', left: '-5%', animationDelay: '-5s' }} />
 
-              <div style={{ display: 'flex', gap: '2rem', alignItems: 'center', flexWrap: 'wrap', position: 'relative', zIndex: 24 }}>
-                <Link to="/contacto" className="btn-wellness" style={{ position: 'relative', zIndex: 25 }}>
-                  Iniciar Transformación <ArrowRight size={22} />
-                </Link>
-                <button 
-                  onClick={() => window.open('https://youtube.com', '_blank')}
-                  style={{ 
-                    background: 'none', 
-                    border: 'none', 
-                    color: '#fff', 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    gap: '1rem', 
-                    fontWeight: 700, 
-                    cursor: 'pointer',
-                    fontSize: '1rem',
-                    opacity: 0.7,
-                    transition: 'var(--transition-fluid)',
-                    position: 'relative',
-                    zIndex: 25
-                  }}
-                >
-                   <PlayCircle size={40} strokeWidth={1} /> Ver El Manifiesto
-                </button>
-              </div>
+        <div className="container" style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
+          <div className="glass-panel-elite reveal-anim" style={{ 
+              padding: 'clamp(3rem, 5vw, 6rem)', 
+              maxWidth: '900px', 
+              margin: '0 auto',
+              background: 'rgba(5, 5, 5, 0.4)'
+          }}>
+            <div className="badge-wellness" style={{ 
+                marginBottom: '2.5rem', 
+                borderColor: 'var(--neon-cyan)', 
+                color: 'var(--neon-cyan)',
+                background: 'rgba(0, 255, 204, 0.05)',
+                textShadow: '0 0 10px var(--neon-cyan-glow)'
+            }}>
+              SANTUARIO TÉCNICO v19.0 • AURORA PROTOCOL
+            </div>
+            
+            <h1 style={{ 
+              fontSize: 'clamp(3.5rem, 12vw, 7.5rem)', 
+              lineHeight: 0.9,
+              marginBottom: '2.5rem',
+              fontWeight: 900,
+              textTransform: 'uppercase',
+              letterSpacing: '-0.05em',
+            }}>
+              Diseñamos <br /> 
+              <span className="neon-glow-text">Resultados.</span>
+            </h1>
+
+            <p style={{ 
+              maxWidth: '700px', 
+              margin: '0 auto 4rem',
+              color: 'rgba(255, 255, 255, 0.8)',
+              fontSize: 'clamp(1.1rem, 2vw, 1.4rem)',
+              lineHeight: 1.5,
+              fontWeight: 500
+            }}>
+              Transforma tu vida y bienestar con Elite Yoga. Sesiones personalizadas, entorno exclusivo y resultados tangibles.
+            </p>
+
+            <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+              <Link to="/contacto" className="btn-wellness" style={{ 
+                  background: 'var(--neon-cyan)', 
+                  boxShadow: '0 0 30px var(--neon-cyan-glow)',
+                  fontWeight: 900,
+                  fontSize: '1rem',
+                  padding: '1.4rem 3.5rem'
+              }}>
+                Descubre Elite <ArrowRight size={22} />
+              </Link>
             </div>
           </div>
         </div>
+
+        {/* Floating Glass Panels for Depth */}
+        <div className="glass-panel-elite hide-mobile" style={{ position: 'absolute', width: '80px', height: '300px', right: '10%', top: '50%', transform: 'translateY(-50%)', opacity: 0.3 }} />
+        <div className="glass-panel-elite hide-mobile" style={{ position: 'absolute', width: '120px', height: '450px', left: '5%', top: '40%', opacity: 0.2 }} />
       </section>
 
       {/* 2. INFRAESTRUCTURA AURORA - THE NEOMORPHIC GRID */}
