@@ -50,7 +50,7 @@ export default function Home() {
             zIndex: 1
         }}>
            <img 
-             src="/src/assets/branding/hero_meditation.png" 
+             src="/hero_meditation.png" 
              alt="Elite Sanctuary" 
              style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.7 }}
            />

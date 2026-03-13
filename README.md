@@ -2,7 +2,7 @@
 
 <div align="center">
   <a href="https://simple-yoga-elite.netlify.app/" target="_blank">
-    <img src="./assets/branding/presentation_hero.png" alt="Santuario Elite Hero" width="100%">
+    <img src="./protocol-aurora/src/assets/branding/hero_meditation.png" alt="Santuario Elite v19.0" width="100%">
   </a>
 
   <br>
