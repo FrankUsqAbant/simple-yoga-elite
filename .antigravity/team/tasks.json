@@ -1,0 +1,60 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Arquitectura: Evolución CSS Spectrum Lux Lvl 5",
+      "status": "COMPLETED",
+      "plan_approved": true,
+      "assigned_to": "Supervisor_Architect",
+      "dependencies": []
+    },
+    {
+      "id": 2,
+      "title": "Frontend: Reconstrucción Home (Hero & Fibonacci Lvl 2)",
+      "status": "COMPLETED",
+      "plan_approved": true,
+      "assigned_to": "Frontend_Spec",
+      "dependencies": [1]
+    },
+    {
+      "id": 3,
+      "title": "Branding: Refinamiento de Narrativa Boutique y Micro-interacciones",
+      "status": "COMPLETED",
+      "plan_approved": true,
+      "assigned_to": "Visionary_Marketer",
+      "dependencies": [2]
+    },
+    {
+      "id": 4,
+      "title": "QA: Auditoría de Consciencia Total (Performance & Elite UX)",
+      "status": "COMPLETED",
+      "plan_approved": true,
+      "assigned_to": "Auditor_QA",
+      "dependencies": [3]
+    },
+    {
+      "id": 5,
+      "title": "Arquitectura: Obsidian Aurora Redesign (CSS)",
+      "status": "IN_PROGRESS",
+      "plan_approved": true,
+      "assigned_to": "Supervisor_Architect",
+      "dependencies": [4]
+    },
+    {
+      "id": 6,
+      "title": "Frontend: Reconstrucción Boutique Header & Footer",
+      "status": "PENDING",
+      "plan_approved": true,
+      "assigned_to": "Frontend_Spec",
+      "dependencies": [5]
+    }
+  ],
+  "members": [
+    { "role": "CEO", "name": "Vero" },
+    { "role": "Analista", "name": "Gatekeeper" },
+    { "role": "Supervisor", "name": "Supervisor_Architect" },
+    { "role": "Frontend", "name": "Frontend_Spec" },
+    { "role": "Marketing", "name": "Visionary_Marketer" },
+    { "role": "QA", "name": "Auditor_QA" }
+  ]
+}

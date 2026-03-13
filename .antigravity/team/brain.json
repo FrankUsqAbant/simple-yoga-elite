@@ -1,0 +1,20 @@
+{
+  "project_name": "SimpleYogaElite",
+  "version": "7.0.0",
+  "system": "Vero 2.0 Elite Multi-Agent",
+  "design_tokens": {
+    "primary_accent": "#1e2f23",
+    "glass_blur": "45px",
+    "noise_frequency": "0.65"
+  },
+  "constraints": {
+    "framework": "React / Vite",
+    "css_strategy": "Vanilla CSS Spectrum Lux",
+    "icon_library": "Lucide React"
+  },
+  "routes": {
+    "home": "/",
+    "classes": "/clases",
+    "api": "Supabase"
+  }
+}
