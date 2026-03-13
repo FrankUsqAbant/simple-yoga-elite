@@ -36,5 +36,5 @@ Si deseas elevar tu propio santuario localmente:
 
 ---
 <div align="center">
-  Creado con el rigor y la visión de la <b>CEO Vero</b> & <b>Vero Elite Agent System</b>. ⚓🌑✨
+  Creado con el rigor y la visión de la <b>Frank Abanto</b>. ⚓🌑✨
 </div>
