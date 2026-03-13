@@ -17,8 +17,8 @@ export default function useScrollReveal(options = {}) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('reveal-visible');
-          // Optionally unobserve after revealing
-          // observer.unobserve(entry.target);
+          // Disconnect after revealing to save resources
+          observer.unobserve(entry.target);
         }
       });
     }, defaultOptions);
