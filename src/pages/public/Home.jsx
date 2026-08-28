@@ -58,12 +58,6 @@ export default function Home() {
 
         {/* Hero Central Glass Container */}
         <div className="container" style={{ position: 'relative', zIndex: 10, textAlign: 'center', maxWidth: '960px' }}>
-          <div style={{ marginBottom: '1.5rem' }}>
-            <span className="badge-gold">
-              <Sparkles size={13} /> SANTUARIO BOUTIQUE • PROTOCOLO AURORA
-            </span>
-          </div>
-          
           <h1 style={{ marginBottom: '1.8rem' }}>
             La Ingeniería <br />
             <span className="text-gold-gradient">del Silencio</span>

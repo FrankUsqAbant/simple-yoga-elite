@@ -60,8 +60,8 @@ export default function PublicLayout() {
 
           {/* Action Button & Mobile Toggle */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <Link to="/contacto" className="btn-gold hide-mobile" style={{ padding: '10px 22px', fontSize: '0.75rem' }}>
-              <Sparkles size={14} /> Reservar Sesión
+            <Link to="/contacto" className="btn-nav-reserve hide-mobile">
+              Reservar Sesión
             </Link>
 
             <button 
