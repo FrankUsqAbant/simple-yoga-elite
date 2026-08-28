@@ -1,40 +1,55 @@
-# 🌑 Simple Yoga Elite — Protocolo Aurora v20.0 🛰️🛡️⚖️🚀
-
 <div align="center">
-  <a href="https://simple-yoga-elite.netlify.app/" target="_blank">
-    <img src="./protocol-aurora/public/hero_meditation.png" alt="Santuario Elite v20.0" width="100%">
-  </a>
 
-  <br>
+# 🧘 SIMPLE YOGA ELITE
 
-  [![Status](https://img.shields.io/badge/Status-Live-00ffcc?style=for-the-badge&logo=netlify&logoColor=black)](https://simple-yoga-elite.netlify.app/)
-  [![Version](https://img.shields.io/badge/Version-20.0_Aurora-000000?style=for-the-badge&logo=google-cloud&logoColor=white)](#)
-  [![Tech](https://img.shields.io/badge/Tech-React_|_Supabase-cyan?style=for-the-badge&logo=react&logoColor=white)](#)
+<p align="center">
+  <strong>Santuario boutique de alto rendimiento · La Ingeniería del Silencio</strong>
+</p>
 
-  <br>
-  
-  **"No somos un centro de yoga. Somos un laboratorio de maestría biomecánica."**
+<br/>
+
+[![Simple Yoga Elite Demo](./public/Pantalla.webp)](https://github.com/FrankUsqAbant/simple-yoga-elite)
+
+<br/><br/>
+
+[![React](https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite_7-646CFF?style=for-the-badge&logo=vite&logoColor=FFD62E)](https://vitejs.dev/)
+[![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com/)
+[![Stripe](https://img.shields.io/badge/Stripe-635BFF?style=for-the-badge&logo=stripe&logoColor=white)](https://stripe.com/)
+[![CSS3](https://img.shields.io/badge/CSS3-Obsidian_Zen-d4af37?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/)
+
 </div>
 
 ---
 
-### 🏛️ Arquitectura del Santuario
-El proyecto ha sido organizado bajo el **Protocolo de Alta Disponibilidad**, centralizando el núcleo de desarrollo en una carpeta raíz para mantener la pureza del repositorio.
+## ✨ Características Principales
 
-- 📁 **[protocol-aurora](./protocol-aurora)**: El corazón del código. Aquí reside el motor React, la integración con Supabase y la lógica de negocio.
-- 📁 **assets**: Recursos de branding y media de grado boutique.
-
-### 🚀 Despliegue Rápido
-Si deseas elevar tu propio santuario localmente:
-
-1. Entra al núcleo: `cd protocol-aurora`
-2. Instala las dependencias: `npm install`
-3. Inicia la transformación: `npm run dev`
-
-> [!IMPORTANT]
-> Para el despliegue en Netlify, asegúrate de configurar el **Base Directory** como `protocol-aurora` y el **Publish Directory** como `protocol-aurora/dist`.
+- **🏛️ Estética Obsidian Zen Luxury**: Atmósfera oscura refinada con acentos en oro champagne, esmeralda y tipografía clásica *Cormorant Garamond*.
+- **🧘 Disciplinas de Élite**:
+  - *Cognitive Flow Yoga* (Armonía neuro-corporal y respiración rítmica)
+  - *Sesiones Privadas 1 a 1* (Instrucción personalizada en suites individuales)
+  - *Membresías de Fundador VIP* (Pases ilimitados y concierge dedicado)
+- **📅 Calendario Interactivo de Reservas**: Selección de fecha en tiempo real con modal de confirmación y sincronización de base de datos.
+- **⚡ Carga Ultrarrápida & Imágenes WebP**: Todas las imágenes optimizadas en formato WebP con un peso reducido en más del 85%.
+- **📱 100% Responsivo**: Navegación fluida y adaptada para todos los dispositivos móviles y de escritorio.
 
 ---
+
+## 🚀 Inicio Rápido
+
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/FrankUsqAbant/simple-yoga-elite.git
+
+# 2. Instalar dependencias
+npm install
+
+# 3. Iniciar servidor de desarrollo
+npm run dev
+```
+
+---
+
 <div align="center">
-  Creado con el rigor y la visión de la <b>Frank Abanto</b>. ⚓🌑✨
+  <sub>Desarrollado con ❤️ por <strong>Franquer Abanto</strong>.</sub>
 </div>
