@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { supabase } from '../../supabase';
 import Calendar from 'react-calendar';
 import { Clock, User, Calendar as CalendarIcon, ArrowRight, CheckCircle2, X, Sparkles } from 'lucide-react';
@@ -41,6 +42,7 @@ export default function Classes() {
 
   // States for Booking Modal
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
   const [selectedClass, setSelectedClass] = useState(null);
   const [reserveDate, setReserveDate] = useState(new Date());
   const [processing, setProcessing] = useState(false);
@@ -73,18 +75,25 @@ export default function Classes() {
     setFormData({ name: '', email: '', phone: '' });
   };
 
+  const sanitizeInput = (val) => String(val || '').replace(/[<>]/g, '').trim();
+
   const handlePaymentSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.email) return;
+    const cleanName = sanitizeInput(formData.name).slice(0, 100);
+    const cleanEmail = sanitizeInput(formData.email).slice(0, 120);
+    const cleanPhone = sanitizeInput(formData.phone).slice(0, 30);
+
+    if (!cleanName || !cleanEmail) return;
     
     setProcessing(true);
     
     try {
       const bookingData = {
         class_id: selectedClass.id,
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
+        name: cleanName,
+        email: cleanEmail,
+        phone: cleanPhone,
+        date: reserveDate.toISOString().split('T')[0],
         status: 'confirmada', 
         stripe_session_id: 'ZEN_RSV_' + Math.random().toString(36).substr(2, 9).toUpperCase(),
         created_at: new Date().toISOString()
@@ -96,7 +105,7 @@ export default function Classes() {
         console.warn('Booking recorded locally:', err);
       }
 
-      window.location.href = `/success?demo=true&class_id=${selectedClass.id}&name=${encodeURIComponent(formData.name)}`;
+      navigate(`/success?demo=true&class_id=${selectedClass.id}&name=${encodeURIComponent(cleanName)}`);
     } catch (error) {
       console.error('Error:', error);
       setProcessing(false);
