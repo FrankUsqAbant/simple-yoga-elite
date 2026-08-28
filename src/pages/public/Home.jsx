@@ -10,6 +10,7 @@ import {
   Calendar,
   CheckCircle2
 } from 'lucide-react';
+import heroSanctuaryImg from '../../assets/hero_sanctuary.webp';
 import SEO from '../../components/SEO';
 
 export default function Home() {
@@ -37,7 +38,7 @@ export default function Home() {
         {/* Background Sanctuary Image with Dark Gradient Vignette */}
         <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
           <img 
-            src="./hero_sanctuary.webp" 
+            src={heroSanctuaryImg} 
             alt="Santuario Simple Yoga Elite" 
             style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.38, filter: 'brightness(0.85) contrast(1.1)' }}
           />
