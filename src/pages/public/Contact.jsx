@@ -11,9 +11,15 @@ export default function Contact() {
     window.scrollTo(0, 0);
   }, []);
 
+  const sanitizeInput = (val) => String(val || '').replace(/[<>]/g, '').trim();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) return;
+    const cleanName = sanitizeInput(formData.name).slice(0, 100);
+    const cleanEmail = sanitizeInput(formData.email).slice(0, 120);
+    const cleanMsg = sanitizeInput(formData.message).slice(0, 1000);
+
+    if (!cleanName || !cleanEmail || !cleanMsg) return;
     
     setStatus('enviando');
     
@@ -22,9 +28,9 @@ export default function Contact() {
         await supabase
           .from('contact_messages')
           .insert([{ 
-            name: formData.name, 
-            email: formData.email, 
-            message: formData.message,
+            name: cleanName, 
+            email: cleanEmail, 
+            message: cleanMsg,
             created_at: new Date().toISOString()
           }]);
       } catch (err) {
