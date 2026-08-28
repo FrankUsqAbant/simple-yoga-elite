@@ -1,55 +1,118 @@
 <div align="center">
 
-# 🧘 SIMPLE YOGA ELITE
+<br/>
 
-<p align="center">
-  <strong>Santuario boutique de alto rendimiento · La Ingeniería del Silencio</strong>
-</p>
+# Ψ &nbsp; S I M P L E &nbsp; Y O G A &nbsp; E L I T E
+
+**Santuario Boutique · La Ingeniería del Silencio**
 
 <br/>
 
-[![Simple Yoga Elite Demo](./public/Pantalla.webp)](https://github.com/FrankUsqAbant/simple-yoga-elite)
+<img src="./public/Pantalla.webp" alt="Simple Yoga Elite — Obsidian Zen Luxury" width="720" style="border-radius: 12px;" />
 
 <br/><br/>
 
-[![React](https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
-[![Vite](https://img.shields.io/badge/Vite_7-646CFF?style=for-the-badge&logo=vite&logoColor=FFD62E)](https://vitejs.dev/)
-[![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com/)
-[![Stripe](https://img.shields.io/badge/Stripe-635BFF?style=for-the-badge&logo=stripe&logoColor=white)](https://stripe.com/)
-[![CSS3](https://img.shields.io/badge/CSS3-Obsidian_Zen-d4af37?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/)
+[![React 19](https://img.shields.io/badge/React_19-20232A?style=flat-square&logo=react&logoColor=61DAFB)](https://react.dev/)
+[![Vite 7](https://img.shields.io/badge/Vite_7-646CFF?style=flat-square&logo=vite&logoColor=FFD62E)](https://vitejs.dev/)
+[![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white)](https://supabase.com/)
+[![Stripe](https://img.shields.io/badge/Stripe-635BFF?style=flat-square&logo=stripe&logoColor=white)](https://stripe.com/)
+[![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=flat-square&logo=netlify&logoColor=white)](https://netlify.com/)
 
 </div>
 
----
-
-## ✨ Características Principales
-
-- **🏛️ Estética Obsidian Zen Luxury**: Atmósfera oscura refinada con acentos en oro champagne, esmeralda y tipografía clásica *Cormorant Garamond*.
-- **🧘 Disciplinas de Élite**:
-  - *Cognitive Flow Yoga* (Armonía neuro-corporal y respiración rítmica)
-  - *Sesiones Privadas 1 a 1* (Instrucción personalizada en suites individuales)
-  - *Membresías de Fundador VIP* (Pases ilimitados y concierge dedicado)
-- **📅 Calendario Interactivo de Reservas**: Selección de fecha en tiempo real con modal de confirmación y sincronización de base de datos.
-- **⚡ Carga Ultrarrápida & Imágenes WebP**: Todas las imágenes optimizadas en formato WebP con un peso reducido en más del 85%.
-- **📱 100% Responsivo**: Navegación fluida y adaptada para todos los dispositivos móviles y de escritorio.
+<br/>
 
 ---
 
-## 🚀 Inicio Rápido
+## Acerca del Proyecto
+
+Simple Yoga Elite es una aplicación web boutique para un estudio de yoga de alto rendimiento. Construida con una estética **Obsidian Zen Luxury** — tonos obsidiana oscuros (`#070a0f`), acentos en oro champagne (`#d4af37`), tipografía serif clásica (*Cormorant Garamond*) y tarjetas con efecto glassmorphism.
+
+<br/>
+
+## Características
+
+| Módulo | Descripción |
+|---|---|
+| **Universo** | Página principal con hero cinematográfico, 3 disciplinas de élite y sección de precios |
+| **Sesiones** | Catálogo de clases con calendario interactivo de reservas y modal de confirmación |
+| **Diario** | Blog de bienestar con artículos de alto rendimiento |
+| **Contacto** | Formulario de concierge privado con mapa integrado |
+| **Pagos** | Integración con Stripe para procesamiento seguro de membresías |
+| **Admin** | Panel de administración protegido con gestión de clases, blog y reservaciones |
+
+<br/>
+
+## Stack Tecnológico
+
+```
+Frontend     →  React 19 · React Router 7 · Lucide Icons
+Build        →  Vite 7 · ESLint 9
+Backend      →  Supabase (Auth + Database) · Stripe (Pagos)
+Estilos      →  CSS3 Vanilla (Design Tokens + Glassmorphism)
+Deploy       →  Netlify (SPA + Redirects)
+```
+
+<br/>
+
+## Inicio Rápido
 
 ```bash
-# 1. Clonar el repositorio
+# Clonar
 git clone https://github.com/FrankUsqAbant/simple-yoga-elite.git
+cd simple-yoga-elite
 
-# 2. Instalar dependencias
+# Instalar
 npm install
 
-# 3. Iniciar servidor de desarrollo
+# Desarrollo
 npm run dev
 ```
+
+#### Variables de Entorno (opcional)
+
+Crear un archivo `.env` en la raíz del proyecto:
+
+```env
+VITE_SUPABASE_URL=tu_supabase_url
+VITE_SUPABASE_ANON_KEY=tu_supabase_anon_key
+VITE_STRIPE_PUBLIC_KEY=tu_stripe_public_key
+STRIPE_SECRET_KEY=tu_stripe_secret_key
+```
+
+> La aplicación funciona en modo demo sin variables de entorno configuradas.
+
+<br/>
+
+## Estructura del Proyecto
+
+```
+simple-yoga-elite/
+├── public/
+│   ├── hero_sanctuary.webp    # Hero image (WebP optimizado)
+│   ├── Pantalla.webp          # Screenshot para README
+│   └── _redirects             # Netlify SPA redirects
+├── src/
+│   ├── components/            # Componentes reutilizables
+│   ├── hooks/                 # Custom hooks
+│   ├── layouts/               # PublicLayout, AdminLayout
+│   ├── pages/
+│   │   ├── admin/             # Dashboard, Login, AdminClasses...
+│   │   └── public/            # Home, Classes, Contact, Blog...
+│   ├── App.jsx                # Rutas principales
+│   ├── index.css              # Design system Obsidian Zen
+│   ├── main.jsx               # Entry point
+│   └── supabase.js            # Cliente Supabase
+├── server.js                  # API Express para Stripe
+├── index.html
+├── vite.config.js
+└── package.json
+```
+
+<br/>
 
 ---
 
 <div align="center">
-  <sub>Desarrollado con ❤️ por <strong>Franquer Abanto</strong>.</sub>
+  <sub>Desarrollado por <strong>Franquer Abanto</strong></sub>
 </div>
