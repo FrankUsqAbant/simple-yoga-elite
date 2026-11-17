@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { Menu, X, Instagram, Facebook, Twitter, Sparkles } from 'lucide-react';
 import { useState, useEffect } from 'react';
@@ -95,7 +96,7 @@ export default function PublicLayout() {
 
       {/* MAIN CONTENT */}
       <main className="main-content" style={{ flex: 1, paddingTop: '80px' }}>
-        <Outlet />
+        <Suspense fallback={<div style={{ minHeight: '60vh' }} />}><Outlet /></Suspense>
       </main>
 
       {/* FOOTER OBSIDIAN ZEN */}

@@ -1,47 +1,49 @@
-import React from 'react'
+import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
-// Layouts
 import PublicLayout from './layouts/PublicLayout'
 import AdminLayout from './layouts/AdminLayout'
-
-// Public Pages (Direct import for instant navigation & zero chunk loading errors)
 import Home from './pages/public/Home'
-import Classes from './pages/public/Classes'
-import BlogList from './pages/public/BlogList'
-import BlogPost from './pages/public/BlogPost'
-import Contact from './pages/public/Contact'
-import Success from './pages/public/Success'
 
-// Admin Pages
-import Login from './pages/admin/Login'
-import Dashboard from './pages/admin/Dashboard'
-import Config from './pages/admin/Config'
-import AdminClasses from './pages/admin/AdminClasses'
-import AdminBlog from './pages/admin/AdminBlog'
-import AdminReservations from './pages/admin/AdminReservations'
+// Páginas cargadas bajo demanda (Home va en el paquete inicial)
+const pages = {
+  Classes: () => import('./pages/public/Classes'),
+  BlogList: () => import('./pages/public/BlogList'),
+  BlogPost: () => import('./pages/public/BlogPost'),
+  Contact: () => import('./pages/public/Contact'),
+  Success: () => import('./pages/public/Success'),
+  Login: () => import('./pages/admin/Login'),
+  Dashboard: () => import('./pages/admin/Dashboard'),
+  Config: () => import('./pages/admin/Config'),
+  AdminClasses: () => import('./pages/admin/AdminClasses'),
+  AdminBlog: () => import('./pages/admin/AdminBlog'),
+  AdminReservations: () => import('./pages/admin/AdminReservations'),
+}
+const L = Object.fromEntries(Object.entries(pages).map(([k, f]) => [k, lazy(f)]))
+
+// Precarga las páginas públicas cuando el navegador está libre: navegación instantánea
+const idle = window.requestIdleCallback || ((fn) => setTimeout(fn, 1500))
+idle(() => ['Classes', 'BlogList', 'Contact'].forEach((k) => pages[k]()))
 
 function App() {
   return (
     <Routes>
-      {/* Public Routes */}
       <Route path="/" element={<PublicLayout />}>
         <Route index element={<Home />} />
-        <Route path="clases" element={<Classes />} />
-        <Route path="blog" element={<BlogList />} />
-        <Route path="blog/:id" element={<BlogPost />} />
-        <Route path="contacto" element={<Contact />} />
-        <Route path="success" element={<Success />} />
+        <Route path="clases" element={<L.Classes />} />
+        <Route path="blog" element={<L.BlogList />} />
+        <Route path="blog/:id" element={<L.BlogPost />} />
+        <Route path="contacto" element={<L.Contact />} />
+        <Route path="success" element={<L.Success />} />
       </Route>
 
-      {/* Admin Routes */}
-      <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<Suspense fallback={null}><L.Login /></Suspense>} />
       <Route path="/admin" element={<AdminLayout />}>
-        <Route index element={<Dashboard />} />
-        <Route path="clases" element={<AdminClasses />} />
-        <Route path="reservas" element={<AdminReservations />} />
-        <Route path="blog" element={<AdminBlog />} />
-        <Route path="config" element={<Config />} />
+        <Route index element={<L.Dashboard />} />
+        <Route path="clases" element={<L.AdminClasses />} />
+        <Route path="reservas" element={<L.AdminReservations />} />
+        <Route path="blog" element={<L.AdminBlog />} />
+        <Route path="config" element={<L.Config />} />
       </Route>
     </Routes>
   )

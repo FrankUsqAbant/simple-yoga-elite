@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Outlet, Navigate, Link, useLocation } from 'react-router-dom';
 import { 
   LayoutDashboard, 
@@ -72,7 +73,7 @@ export default function AdminLayout() {
         
         <div style={{ flex: 1, padding: '2.5rem', overflowY: 'auto' }}>
           <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-            <Outlet />
+            <Suspense fallback={<div style={{ minHeight: '60vh' }} />}><Outlet /></Suspense>
           </div>
         </div>
       </main>

@@ -26,7 +26,7 @@
   --glass-bg: rgba(14, 21, 36, 0.7);
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
-  --glass-blur: blur(16px);
+  --glass-blur: blur(8px);
   
   /* Typography */
   --font-serif: 'Cormorant Garamond', Georgia, serif;
@@ -425,4 +425,9 @@ p {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-gold-muted);
+}
+
+/* Movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
