@@ -38,7 +38,6 @@ const DEFAULT_CLASSES = [
 
 export default function Classes() {
   const [classes, setClasses] = useState(DEFAULT_CLASSES);
-  const [loading, setLoading] = useState(false);
 
   // States for Booking Modal
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -49,24 +48,23 @@ export default function Classes() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '' });
 
   useEffect(() => {
-    fetchClasses();
     window.scrollTo(0, 0);
-  }, []);
-
-  const fetchClasses = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('yoga_classes')
-        .select('*')
-        .order('created_at', { ascending: true });
-
-      if (!error && data && data.length > 0) {
-        setClasses(data);
+    const fetchClasses = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('yoga_classes')
+          .select('*')
+          .order('created_at', { ascending: true });
+  
+        if (!error && data && data.length > 0) {
+          setClasses(data);
+        }
+      } catch (error) {
+        console.warn('Using default boutique classes fallback:', error);
       }
-    } catch (error) {
-      console.warn('Using default boutique classes fallback:', error);
-    }
-  };
+    };
+    fetchClasses();
+  }, []);
 
   const openReserveModal = (yogaClass) => {
     setSelectedClass(yogaClass);

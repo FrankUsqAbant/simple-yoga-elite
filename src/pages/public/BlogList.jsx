@@ -30,27 +30,25 @@ const DEFAULT_POSTS = [
 
 export default function BlogList() {
   const [posts, setPosts] = useState(DEFAULT_POSTS);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetchPosts();
     window.scrollTo(0, 0);
-  }, []);
-
-  const fetchPosts = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('blog_posts')
-        .select('*')
-        .order('created_at', { ascending: false });
-
-      if (!error && data && data.length > 0) {
-        setPosts(data);
+    const fetchPosts = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('blog_posts')
+          .select('*')
+          .order('created_at', { ascending: false });
+  
+        if (!error && data && data.length > 0) {
+          setPosts(data);
+        }
+      } catch (error) {
+        console.warn('Using default blog posts:', error);
       }
-    } catch (error) {
-      console.warn('Using default blog posts:', error);
-    }
-  };
+    };
+    fetchPosts();
+  }, []);
 
   return (
     <div className="obsidian-page animate-fadeIn">

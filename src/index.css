@@ -116,10 +116,6 @@ p {
   -webkit-text-fill-color: transparent;
 }
 
-.text-emerald {
-  color: var(--color-emerald);
-}
-
 /* Luxury Buttons */
 .btn-gold {
   display: inline-flex;

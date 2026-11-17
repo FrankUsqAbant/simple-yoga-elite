@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { CheckCircle2, ArrowRight, Sparkles } from 'lucide-react';
 import { supabase } from '../../supabase';
@@ -10,29 +10,26 @@ export default function Success() {
   const classId = searchParams.get('class_id');
   const clientName = searchParams.get('name') || 'Practicante';
   
-  const [status, setStatus] = useState('Confirmando tu lugar en el santuario...');
-
-  const saveBooking = useCallback(async () => {
-    try {
-      if (sessionId && classId) {
-        await supabase
-          .from('class_bookings')
-          .insert([{
-            class_id: classId,
-            stripe_session_id: sessionId,
-            status: 'confirmado',
-          }]);
-      }
-      setStatus('¡Tu lugar en el santuario ha sido reservado con éxito!');
-    } catch (err) {
-      console.warn('Booking status synced:', err);
-      setStatus('¡Reserva completada con éxito!');
-    }
-  }, [sessionId, classId]);
+  const status = '¡Tu lugar en el santuario ha sido reservado con éxito!';
 
   useEffect(() => {
+    const saveBooking = async () => {
+      try {
+        if (sessionId && classId) {
+          await supabase
+            .from('class_bookings')
+            .insert([{
+              class_id: classId,
+              stripe_session_id: sessionId,
+              status: 'confirmado',
+            }]);
+        }
+      } catch (err) {
+        console.warn('Booking status synced:', err);
+      }
+    };
     saveBooking();
-  }, [saveBooking]);
+  }, [sessionId, classId]);
 
   return (
     <div className="obsidian-page animate-fadeIn" style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '4rem 1.5rem' }}>
