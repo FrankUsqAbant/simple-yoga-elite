@@ -16,9 +16,9 @@ Santuario boutique de yoga · La Ingeniería del Silencio
 
 ## Características
 
-- Disciplinas, membresías y calendario de reservas.
-- Blog y panel de administración.
-- Carga por rutas, fuentes variables e imágenes WebP.
+- Landing de una sola página: disciplinas, santuario, membresías y contacto.
+- Sin backend ni dependencias de datos: solo React, ligera y rápida.
+- Fuentes variables e imágenes WebP.
 
 ## Uso
 
